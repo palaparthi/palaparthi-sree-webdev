@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Web Dev at Northeastern University",
   "main": "server.js",
+  "engines": {
+    "node": "6.10.3",
+    "npm": "3.10.10"
+  },
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
