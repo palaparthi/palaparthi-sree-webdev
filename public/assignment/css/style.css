@@ -1,10 +1,14 @@
-input.form-control {
-    margin-bottom: 5px;
-}
+.page-header {
+    margin-top: 10px;
+    margin-bottom: 36px;
+    text-align: center;
 
-body {
-    padding-top: 36px;
 }
-div {
-    margin-top: 36px;
+.jumbotron{
+    margin: 20px 20px 20px 20px;
+
+}
+body{
+
+    background-color: #D4D8D1;
 }
