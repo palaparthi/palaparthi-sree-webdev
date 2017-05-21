@@ -1,4 +1,4 @@
-.page-header {
+/*.page-header {
     margin-top: 10px;
     margin-bottom: 36px;
     text-align: center;
@@ -11,4 +11,140 @@
 body{
 
     background-color: #D4D8D1;
+}
+*/
+input.form-control,
+select.form-control,textarea.form-control{
+
+    margin-bottom: 5px;
+
+}
+body{
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+
+}
+div label{
+    white-space: nowrap;
+}
+
+nav.navbar.navbar-default.navbar-fixed-bottom, nav.navbar.navbar-default.navbar-fixed-top {
+
+
+}
+wd-gly-ok {
+
+    white-space: nowrap;
+
+}
+.navbar-header {
+    width: 100%;
+}
+.navbar-default {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.navbar-default .navbar-brand, .glyphicon, .navbar-default .navbar-brand:hover {
+    color: white;
+}
+.glyphicon-cog{
+    color: #2b669a;
+}
+
+.navbar-text span{
+    color: white;
+}
+@media (max-width: 200px)
+{
+    .wd-navbar-media
+    {
+        visibility: hidden;
+
+    }
+    .wd-gly-left
+    {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 768px)
+{
+    .glyphicon-plus
+    {
+        right:15px;
+    }
+
+}
+@media (max-width: 768px) and (min-width: 200px) {
+    .wd-gly-left
+    {
+        visibility: visible;
+
+    }
+}
+
+@media (min-width: 768px) {
+
+    .wd-gly-left
+    {
+        visibility: hidden;
+
+    }
+    .wd-navbar-media
+    {
+        left:-15px;
+    }
+
+}
+div
+{
+    white-space: nowrap;
+}
+.wd-navbar-edit
+{
+    left:-15px;
+}
+.wd-navbar-gly-edit
+{
+    right:-30px;
+}
+.wd-navbar-new-edit
+{
+    left:-30px;
+}
+wd-gly-left
+{
+    left:-10px;
+}
+.wd-gly-edit
+{
+    right:-15px;
+}
+a:hover{
+    text-decoration: none;
+}
+.wd-widget {
+    margin-bottom: 10px;
+}
+
+.wd-widget > img {
+    width: 100%;
+}
+
+.wd-widget > .wd-widget-toolbar {
+    position: absolute;
+    right: 15px;
+    background: white;
+    opacity: 0.9;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+}
+.glyphicon-align-justify
+{
+    color:black;
+}
+div
+{
+    white-space: normal;
 }
