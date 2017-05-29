@@ -842,13 +842,13 @@
             function confirmBounds() {
 
                 var
-                    // Define the element’s functional boundaries using its view factor.
+                    // Define the element’s functional boundaries using its views factor.
                     top        = elemTop    + elemHeight * vF,
                     left       = elemLeft   + elemWidth  * vF,
                     bottom     = elemBottom - elemHeight * vF,
                     right      = elemRight  - elemWidth  * vF,
 
-                    // Define the container functional boundaries using its view offset.
+                    // Define the container functional boundaries using its views offset.
                     viewTop    = scrolled.y + elem.config.viewOffset.top,
                     viewLeft   = scrolled.x + elem.config.viewOffset.left,
                     viewBottom = scrolled.y - elem.config.viewOffset.bottom + container.height,

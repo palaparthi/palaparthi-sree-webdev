@@ -1,0 +1,42 @@
+
+    <div class="container-fluid">
+
+        <h1>Register</h1>
+
+        <div ng-show="vm.err"
+             class="alert alert-info">
+            {{vm.err}}
+        </div>
+
+        <label for="username">Username</label>
+
+        <input ng-model="username"
+               type="text"
+               id="username"
+               class="form-control"
+               placeholder="user1"/>
+
+        <label for="pwd">Password</label>
+
+        <input ng-model = "password"
+               type="password"
+               id="pwd"
+               class="form-control"
+               placeholder="pwd123"/>
+
+        <label for="verpwd">Verify Password</label>
+
+        <input ng-model="verpwd"
+               type="password"
+               id="verpwd"
+               class="form-control"
+               placeholder="pwd123"/>
+
+        <a ng-click = "vm.register(username,password,verpwd)"
+           class="btn btn-primary btn-block">
+           Register</a>
+
+        <a class="btn btn-danger  btn-block"
+           href="#!/login">Cancel</a>
+
+    </div>

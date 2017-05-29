@@ -1,0 +1,54 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
+                <div class="wd-navbar-list navbar-brand pull-left">
+                    <a class="wd-gly-chevron-left"
+                       ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                    </a>
+                    Widgets
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 ">
+                <div class="navbar-brand pull-right">
+                    <a ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{vm.pid}}/widget/new">
+                  <span class="wd-gly-plus glyphicon glyphicon-plus">
+                  </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div ng-repeat="widget in vm.widgets" class="wd-widget">
+        <div class="wd-widget-toolbar">
+            <a ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{vm.pid}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+            <span class="glyphicon glyphicon-align-justify"></span>
+        </div>
+        <div ng-include="vm.widgetUrl(widget)"></div>
+    </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text wd-navbar-header pull-right ">
+            <a href="#!/user/{{vm.uid}}">
+                <span class="wd-gly-user glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>

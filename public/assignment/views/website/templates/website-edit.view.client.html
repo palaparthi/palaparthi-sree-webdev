@@ -1,0 +1,130 @@
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="wd-navbar-edit col-xs-4 hidden-xs">
+                <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
+                    <div class="wd-navbar-edit navbar-brand pull-left">
+                        <a class="wd-navbar-left wd-gly-chevron-left"
+                           ng-href="#!/user/{{vm.uid}}/website">
+                      <span class="glyphicon glyphicon-chevron-left">
+                      </span>
+                        </a>
+                        <span>Websites</span>
+                    </div>
+                </div>
+                <div class="wd-navbar-gly-edit col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="navbar-brand pull-right">
+                        <a ng-href="#!/user/{{vm.uid}}/website/new">
+                      <span class="glyphicon glyphicon-plus">
+                      </span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="wd-navbar-new-edit col-xs-12 col-sm-8">
+                <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
+                    <div class="navbar-brand pull-left">
+                        <a class="wd-gly-chevron-left-edit"
+                           ng-href="#!/user/{{vm.uid}}/website">
+                      <span class="wd-gly-left glyphicon glyphicon-chevron-left">
+                      </span>
+                        </a>
+                        <span>Edit Website</span>
+                    </div>
+                </div>
+                <div class="wd-navbar-gly-edit col-lg-4 col-md-4 col-sm-4 ">
+                    <div class="navbar-brand pull-right">
+                        <a ng-click="vm.updateWebsite()">
+                      <span class="wd-gly-edit glyphicon glyphicon-ok">
+                      </span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-xs-4 hidden-xs">
+            <ul class="list-group">
+
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-9 col-xs-9">
+                            Name
+                        </div>
+                        <div class="col-lg-2 visible-lg">
+                            Created
+                        </div>
+                        <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
+                            Accessed
+                        </div>
+                        <div class="col-xs-3">
+
+                        </div>
+                    </div>
+                </li>
+
+                <li ng-repeat="website in vm.websites" class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-8 col-xs-9">
+                            <a ng-href="#!/user/{{vm.uid}}/website/{{website._id}}/page">
+                                {{website.name}}
+                            </a>
+                        </div>
+                        <div class="col-lg-3 visible-lg">
+                            {{website.created | date}}
+                        </div>
+                        <div class="col-md-3 hidden-sm hidden-xs">
+                            {{website.accessed | date}}
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-xs-3">
+                            <a ng-href="#!/user/{{vm.uid}}/website/{{website._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+            <label for="name">Website Name</label>
+            <input class="form-control"
+                   ng-model="vm.website.name"
+                   placeholder="facebook"
+                   value="Blogger"
+                   id="name"/>
+
+            <label for="description">Website Description</label>
+            <textarea id="description"
+                      ng-model="vm.website.description"
+                      rows="5"
+                      placeholder="So big it is its own country"
+                      class="form-control"></textarea>
+
+            <a ng-click="vm.deleteWebsite()" class="btn btn-block btn-danger">Delete</a>
+        </div>
+    </div>
+
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text wd-navbar-header pull-right ">
+            <a ng-href="#!/user/{{vm.uid}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
