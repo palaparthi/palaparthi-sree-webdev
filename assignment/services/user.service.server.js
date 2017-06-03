@@ -27,7 +27,7 @@ function findUserById(req, res) {
     var userId = req.params['userId'];
     for (var u in users){
         if(users[u]._id === userId){
-            res.send(users[u]);
+            res.json(users[u]);
             return;
         }
 
