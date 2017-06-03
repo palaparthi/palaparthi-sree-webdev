@@ -11,8 +11,17 @@
         var model = this; //instead of using $scope we bind this to instance of the controller
          model.userId = $routeParams['uid'];
 
-         model.user = userService.findUserById(model.userId);
+         //model.user = userService.findUserById(model.userId);
+        userService.findUserById(model.userId)
+            .then (renderUser, userError);
 
+        function renderUser(user) {
+            model.user = user;
+        }
+
+        function userError(user) {
+            model.error = 'User not found';
+        }
         //event handlers
         model.update=update;
 

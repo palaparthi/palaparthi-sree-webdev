@@ -6,7 +6,7 @@
         .module('WebAppMaker')
         .factory('userService', userService)
     
-    function userService() {
+    function userService($http) {
         var users = [
             {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
             {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
@@ -26,13 +26,19 @@
 
         function findUserById(userId) {
 
-            for (var u in users){
+            var url = '/api/user/'+userId;
+            return $http.get(url)
+                .then(function (response) {
+                    var user = response.data;
+                    return user;
+                });
+            /*for (var u in users){
                 if(users[u]._id === userId){
                     return users[u];
                 }
 
             }
-            return null;
+            return null;*/
 
         }
 

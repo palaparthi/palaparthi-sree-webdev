@@ -21,7 +21,7 @@
         function createHeading() {
             var widgetHeading={
                 widgetType: "HEADING",
-                size: 0,
+                size: 1,
                 text: ""
             };
             wdgt=WidgetService.createWidget(model.pid,widgetHeading);

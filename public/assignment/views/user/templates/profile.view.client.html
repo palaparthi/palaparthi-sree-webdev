@@ -23,7 +23,7 @@
 
         <form>
             <div class="form-group">
-
+                <div ng-show = "vm.error" class="alert alert-danger">{{vm.error}}</div>
                 <label for="username">Username</label>
 
                 <input  readonly
