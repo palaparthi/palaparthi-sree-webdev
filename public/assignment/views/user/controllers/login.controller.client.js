@@ -14,20 +14,25 @@
         model.login = login;
 
         function login(username, password) {
-           var user = userService.findUserByCredentials(username,password);
+            userService.findUserByCredentials(username, password)
+                .then(loginUser, loginError);
 
-           if (user !== null){
+            function loginUser(user) {
+                if (user === null) {
+                    model.message = 'Invalid Credentials'
+                }
+                else {
+                    $location.url('/user/' + user._id)
+                }
 
-                $location.url('/user/'+user._id)
+
             }
-            else{
-               model.message='Invalid Credentials'
-            }
 
+            function loginError(user) {
+                model.message="Error!!";
+            }
 
         }
-
-
     }
 
 

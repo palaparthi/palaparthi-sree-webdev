@@ -11,19 +11,24 @@
         var model = this; //instead of using $scope we bind this to instance of the controller
          model.userId = $routeParams['uid'];
 
+         //event handlers
+        model.update=update;
+
          //model.user = userService.findUserById(model.userId);
         userService.findUserById(model.userId)
             .then (renderUser, userError);
 
         function renderUser(user) {
-            model.user = user;
+            if(user === null){
+                model.error = 'User not found';
+            }
+            else model.user = user;
         }
 
         function userError(user) {
             model.error = 'User not found';
         }
-        //event handlers
-        model.update=update;
+
 
         function update() {
             var usr={
@@ -34,7 +39,16 @@
                 firstName:model.user.firstName,
                 lastName:model.user.lastName
             };
-            userService.updateUser(model.userId,usr);
+            userService.updateUser(model.userId,usr)
+                .then(messageSuccess, messageFailure);
+
+        function messageSuccess(user) {
+            model.error = "Successfully updated the user "+user.username;
+        }
+
+        function messageFailure(user) {
+                model.error = "Error updating";
+            }
         }
 
     }

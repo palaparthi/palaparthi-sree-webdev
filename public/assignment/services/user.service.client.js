@@ -43,7 +43,7 @@
         }
 
         function findUserByCredentials(username, password) {
-            for(u in users){
+           /* for(u in users){
                 var found=null;
                 if(users[u].username === username && users[u].password === password){
                     found = users[u];
@@ -52,36 +52,62 @@
                 }
 
             }
-           return found;
+           return found;*/
+
+            var url = '/api/user?username='+username+'&password='+password;
+
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
+
         function findUserByUsername(username) {
             //return users.find(function (user) {
              //   user.username === username;
 
     //        }
-           for(var u in users){
-               if(users[u].username === username){
-                   return users[u];
-               }
-           }
-           return null;
+
+           var url = '/api/user?username='+username;
+
+           return $http.get(url)
+               .then(function(resp){
+                   return resp.data;
+               })
 
         }
 
         function createUser(user) {
-            user._id = (new Date().getTime())+"";
+           /* user._id = (new Date().getTime())+"";
             users.push(user);
-            return user; // not specified in requirement document
+            return user;*/ // not specified in requirement document
+            var url = '/api/user';
+            return $http.post(url, user)
+                .then(function (response) {
+                    return response.data;
+                })
         }
+
         function updateUser(userId, user) {
-            var user = findUserById(userId);
+            /*var user = findUserById(userId);
             var index = users.indexOf(user);
-            users[index] = user;
+            users[index] = user;*/
+
+            var url = '/api/user/'+userId;
+            return $http.put(url, user)
+                .then(function (response) {
+                    return response.data;
+                })
         }
+
         function deleteUser(userId) {
-            var user = findUserById(userId);
-            var index = users.indexOf(user);
-            users.splice(index,1);
+            /*var user = findUserById(userId);
+             var index = users.indexOf(user);
+             users.splice(index,1);*/
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
     }
     
