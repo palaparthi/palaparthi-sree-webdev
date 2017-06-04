@@ -44,7 +44,7 @@
                 .then(messageSuccess, messageFailure);
 
         function messageSuccess(user) {
-            model.error = "Successfully updated the user "+user.username;
+            model.message = "Successfully updated the user "+user.username;
         }
 
         function messageFailure(user) {

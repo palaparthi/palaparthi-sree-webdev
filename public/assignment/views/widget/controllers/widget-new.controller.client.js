@@ -17,6 +17,7 @@
         model.createHeading=createHeading;
         model.createImage=createImage;
         model.createYouTube=createYouTube;
+        model.createhtml=createhtml;
 
         function createHeading() {
             var widgetHeading={
@@ -24,8 +25,20 @@
                 size: 1,
                 text: ""
             };
-            wdgt=WidgetService.createWidget(model.pid,widgetHeading);
-            $location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
+            //wdgt=WidgetService.createWidget(model.pid,widgetHeading);
+            WidgetService.createWidget(model.pid,widgetHeading)
+                .then(redirectWidget, errorWidget);
+            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
+        }
+
+        function createhtml() {
+            var widgethtml={
+                widgetType: "HTML",
+                text: ""
+            };
+            wdgt=WidgetService.createWidget(model.pid,widgethtml)
+                .then(redirectWidget, errorWidget);
+            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
         }
 
         function createImage() {
@@ -34,8 +47,9 @@
                 width:"100%",
                 url:""
             };
-            wdgt=WidgetService.createWidget(model.pid,widgetImage);
-            $location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
+            wdgt=WidgetService.createWidget(model.pid,widgetImage)
+                .then(redirectWidget, errorWidget);
+            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
         }
 
         function createYouTube() {
@@ -44,8 +58,17 @@
                 width:"100%",
                 url:""
             };
-            wdgt=WidgetService.createWidget(model.pid,widgetYouTube);
+            wdgt=WidgetService.createWidget(model.pid,widgetYouTube)
+                .then(redirectWidget, errorWidget);
+            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
+        }
+
+        function redirectWidget(wdgt){
             $location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
+        }
+
+        function errorWidget(){
+            model.message = "Error!"
         }
     }
 })();

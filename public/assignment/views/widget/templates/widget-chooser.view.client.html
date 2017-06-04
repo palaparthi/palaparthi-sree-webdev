@@ -19,6 +19,7 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-show="vm.message" class="alert alert-danger">{{vm.message}}</div>
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
@@ -41,7 +42,7 @@
         <li class="list-group-item">
         <div class="row">
             <div class="col-lg-5 col-md-8 col-xs-9">
-                <a ng-click="vm.createHeading()">
+                <a ng-click="vm.createhtml()">
                     HTML
                 </a>
             </div>

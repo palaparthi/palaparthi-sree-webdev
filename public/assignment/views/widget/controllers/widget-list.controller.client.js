@@ -13,11 +13,20 @@
         model.pid=$routeParams['pid'];
 
         //event handlers
-        model.widgets = WidgetService.findWidgetsByPageId(model.pid);
+        //model.widgets = WidgetService.findWidgetsByPageId(model.pid);
         model.trust = trust;
         model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         model.widgetUrl = widgetUrl;
 
+        WidgetService.findWidgetsByPageId(model.pid)
+            .then(renderWidgets, errorWidget);
+
+        function renderWidgets(widgets) {
+            model.widgets = widgets;
+        }
+        function errorWidget() {
+            model.message = "Error!"
+        }
         function widgetUrl(widget) {
             var url = 'views/widget/templates/widget-'+widget.widgetType.toLowerCase()+'.view.client.html';
             return url;

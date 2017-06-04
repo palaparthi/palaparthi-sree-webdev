@@ -1,2 +1,6 @@
-<div ng-include="vm.widgetUrl(vm.widget)"></div>
+<div>
+    <div ng-show="vm.message" class="alert alert-danger">{{vm.message}}</div>
+    <div ng-include="vm.widgetUrl(vm.widget)"></div>
+</div>
+
 
