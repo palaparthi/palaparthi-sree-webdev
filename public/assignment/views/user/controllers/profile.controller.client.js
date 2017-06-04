@@ -37,7 +37,8 @@
                 username:model.user.username,
                 password:model.user.password,
                 firstName:model.user.firstName,
-                lastName:model.user.lastName
+                lastName:model.user.lastName,
+                email:model.user.email
             };
             userService.updateUser(model.userId,usr)
                 .then(messageSuccess, messageFailure);
