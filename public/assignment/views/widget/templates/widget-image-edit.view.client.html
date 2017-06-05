@@ -56,6 +56,9 @@
            placeholder="100%"
            id="width"/>
     <label> Upload Image</label>
+    <a class ="btn btn-primary btn-block" href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{vm.pid}}/widget/{{vm.wgid}}/search">
+        Search
+    </a>
     <form action="/api/upload"   method="post" enctype="multipart/form-data">
         <input  name="myFile"    type="file" class="form-control"/>
         <input  name="widgetId"  value="{{vm.wgid}}"       style="display: none"/>
