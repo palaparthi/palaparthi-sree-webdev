@@ -84,6 +84,7 @@
 
         function renderWidget(widget) {
             model.widget = widget;
+            model.width = model.widget.width;
         }
         function errorWidget() {
             model.message = "Error!"
