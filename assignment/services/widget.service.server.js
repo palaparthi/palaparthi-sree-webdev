@@ -26,6 +26,7 @@ app.put('/api/widget/:widgetId', updateWidget);
 app.delete('/api/widget/:widgetId', deleteWidget);
 //app.post('/api/upload', uploadImage)
 app.post ("/api/upload", upload.single('myFile'), uploadImage);
+app.put("/api/page/:pageId/widget", reorderWidget);
 
 function createWidget(req, res) {
 
@@ -128,5 +129,53 @@ function uploadImage(req, res) {
     var callbackUrl   = "/assignment/#!/user/"+userId+"/website/"+websiteId+'/page/'+pageId+'/widget/'+widgetId;
 
     res.redirect(callbackUrl);
+}
+
+function reorderWidget(req, res){
+    var startIndex = req.query['initial'];
+    var stopIndex = req.query['final'];
+    var pageId = req.params['pageId'];
+    var initial_widgets=widgets;
+    var wdgts=[];
+    //widgets=wdgts;
+    var index1=0;
+    var index2=0;
+    for(var w in widgets)
+    {
+        if(widgets[w].pageId === pageId)
+        {
+            wdgts.push(widgets[w]);
+        }
+    }
+
+    var widget=wdgts[startIndex];
+    wdgts.splice(startIndex,1);
+    wdgts1 = wdgts.slice(0,stopIndex);
+    wdgts2 = wdgts.slice(stopIndex,wdgts.length);
+    wdgts1.push(widget);
+    wdgts1=wdgts1.concat(wdgts2);
+    var finalWidget=[];
+    var index=0;
+    while(index2<initial_widgets.length)
+    {
+        if(initial_widgets[index2] === wdgts1[index1])
+        {
+            finalWidget[index++]=initial_widgets[index2];
+            index1++;
+            index2++;
+        }
+        else if(wdgts1.indexOf(initial_widgets[index2]) === -1)
+        {
+            finalWidget[index++] = initial_widgets[index2++];
+        }
+        else if(wdgts1.indexOf(initial_widgets[index2]) >= 0)
+        {
+            finalWidget[index++] = wdgts1[index1++];
+            index2++;
+        }
+    }
+    widgets=finalWidget;
+    console.log(widgets);
+    res.json(widgets);
 }
 

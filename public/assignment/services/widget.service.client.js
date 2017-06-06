@@ -24,7 +24,8 @@
             findWidgetsByPageId: findWidgetsByPageId,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
-            deleteWidget: deleteWidget
+            deleteWidget: deleteWidget,
+            reorderWidget: reorderWidget
         };
 
         return api;
@@ -88,6 +89,15 @@
             widgets.splice(index,1);*/
             var url='/api/widget/'+widgetId;
             return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                })
+        }
+
+        function reorderWidget(startIndex, stopIndex, pid) {
+
+            var url='/api/page/'+pid+'/widget?initial='+startIndex+'&final='+stopIndex;
+            return $http.put(url)
                 .then(function (response) {
                     return response.data;
                 })
