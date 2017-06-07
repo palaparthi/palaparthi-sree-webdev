@@ -12,14 +12,18 @@
         model.wid=$routeParams['wid'];
         model.pid=$routeParams['pid'];
 
+
+        function init() {
+            WidgetService.findWidgetsByPageId(model.pid)
+                .then(renderWidgets, errorWidget);
+        }
+
+        init();
+
         //event handlers
-        //model.widgets = WidgetService.findWidgetsByPageId(model.pid);
         model.trust = trust;
         model.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         model.widgetUrl = widgetUrl;
-
-        WidgetService.findWidgetsByPageId(model.pid)
-            .then(renderWidgets, errorWidget);
 
         function renderWidgets(widgets) {
             model.widgets = widgets;

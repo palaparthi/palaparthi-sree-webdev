@@ -12,18 +12,21 @@
 
         model.uid = $routeParams['uid'];
         model.wid = $routeParams['wid'];
-        //model.websites = WebsiteService.findWebsitesByUser(model.uid);
 
-        //model.website = WebsiteService.findWebsiteById(model.wid);
-
+        //event handlers
         model.deleteWebsite = deleteWebsite;
         model.updateWebsite = updateWebsite;
 
-        WebsiteService.findWebsitesByUser(model.uid)
-            .then(renderWebsites, errorWebsite);
+        function init() {
+            WebsiteService.findWebsitesByUser(model.uid)
+                .then(renderWebsites, errorWebsite);
 
-        WebsiteService.findWebsiteById(model.wid)
-            .then(renderWebsite, errorWebsite);
+            WebsiteService.findWebsiteById(model.wid)
+                .then(renderWebsite, errorWebsite);
+
+        }
+
+        init();
 
         function renderWebsites(websites) {
             model.websites = websites;
@@ -56,12 +59,6 @@
 
             WebsiteService.updateWebsite(model.wid, website)
                 .then(redirectWebsite, errorWebsite);
-
-
-
-            /*function errorrWebsite() {
-                model.error = "Error!"
-            }*/
 
         }
         function redirectWebsite() {

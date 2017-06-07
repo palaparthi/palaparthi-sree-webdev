@@ -18,25 +18,21 @@
             $(element).sortable({
                 start: function (event, ui)
                 {
-                    console.log(ui.item.index());
                     startIndex = ui.item.index();
                 },
                 stop: function (event, ui)
                 {
-                    console.log(ui.item.index());
                     stopIndex = ui.item.index();
-                    //var ht = $(ui.item.context.innerHTML);
-                    //console.log(ui.item.context.innerHTML);
                     var str = ui.item.context.innerHTML;
-                    console.log(str.split('ng-href')[1].split('/')[16].split('">')[0]);
+
                     var pid = $routeParams['pid'];
 
                     WidgetService.reorderWidget(startIndex, stopIndex, pid)
                     .then(function (response) {
-                        console.log(response.data);
+
                     });
 
-                    //sortController.sortWidgets(startIndex, stopIndex);
+
                 }
             } );
 

@@ -14,9 +14,12 @@
          //event handlers
         model.update=update;
 
-         //model.user = userService.findUserById(model.userId);
-        userService.findUserById(model.userId)
-            .then (renderUser, userError);
+        function init() {
+            userService.findUserById(model.userId)
+                .then (renderUser, userError);
+        }
+
+        init();
 
         function renderUser(user) {
             if(user === null){
@@ -32,7 +35,6 @@
 
         function update() {
             var usr={
-              //{_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
                 _id:model.user._id,
                 username:model.user.username,
                 password:model.user.password,

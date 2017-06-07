@@ -12,9 +12,15 @@
         model.wid=$routeParams['wid'];
         model.pid=$routeParams['pid'];
         model.wgid=$routeParams['wgid'];
-        WidgetService.findWidgetById(model.wgid)
-            .then(renderWidget, errorWidget);
 
+        function init() {
+            WidgetService.findWidgetById(model.wgid)
+                .then(renderWidget, errorWidget);
+        }
+
+        init();
+
+        //event handlers
         model.searchPhotos= searchPhotos;
         model.selectPhoto = selectPhoto;
 
@@ -33,7 +39,6 @@
             FlickrService
                 .searchPhotos(searchText)
                 .then(function(response) {
-                    //console.log(response.data);
                     data = response.data.replace("jsonFlickrApi(","");
                     data = data.substring(0,data.length - 1);
                     data = JSON.parse(data);

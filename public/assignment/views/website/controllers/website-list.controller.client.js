@@ -9,9 +9,13 @@
     function WebsiteListController(WebsiteService,$routeParams) {
         var model = this;
         model.uid = $routeParams['uid'];
-        //model.websites = WebsiteService.findWebsitesByUser(model.uid);
-        WebsiteService.findWebsitesByUser(model.uid)
-            .then(renderWebsite, errorWebsite);
+
+        function init() {
+            WebsiteService.findWebsitesByUser(model.uid)
+                .then(renderWebsite, errorWebsite);
+        }
+
+        init();
 
         function renderWebsite(websites){
             model.websites = websites

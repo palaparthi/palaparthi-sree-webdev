@@ -6,7 +6,9 @@
     function Config($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'home.html'
+                templateUrl: 'home.html',
+                controller: 'SearchController',
+                controllerAs: 'model'
             })
             .when('/search', {
                 templateUrl: 'views/series/templates/search-results.view.client.html',

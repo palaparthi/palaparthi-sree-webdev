@@ -12,11 +12,14 @@
         model.uid = $routeParams['uid'];
         model.wid = $routeParams['wid'];
 
-        //model.pages = PageService.findPageByWebsiteId(model.wid);
+        function init() {
+            PageService.findPageByWebsiteId(model.wid)
+                .then(renderPage, errorPage);
+        }
 
-        PageService.findPageByWebsiteId(model.wid)
-            .then(renderPage, errorPage);
+        init();
 
+        //event handlers
         model.newPage = newPage;
 
         function newPage(name,title){

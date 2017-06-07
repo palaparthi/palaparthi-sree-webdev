@@ -9,6 +9,8 @@
     function RegisterController($location, userService) {
         var model = this;
         var err = null;
+
+        //event handlers
         model.register = register;
 
         function register(username, password, verpwd) {
@@ -17,24 +19,9 @@
                 return;
             }
             var user = null;
-            //user = userService.findUserByUsername(username);
             userService.findUserByUsername(username)
                 .then (renderUser, userError);
 
-            /*if(user===null || typeof user === 'undefined'){
-                if(password === verpwd){
-                    user = {
-                        username : username,
-                        password : password
-                    }
-                    userService.createUser(user);
-                    $location.url('/user/'+user._id)
-                }
-                else{
-                    model.err = 'Please make sure that passwords match !'
-                }
-            }
-            else model.err = 'User '+user.username+' already exists. Try another username !'*/
 
             function renderUser(user) {
 

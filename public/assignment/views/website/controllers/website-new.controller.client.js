@@ -6,14 +6,16 @@
     function NewWebsiteController($routeParams, $location, WebsiteService) {
         var model=this;
         model.uid=$routeParams['uid'];
-        //model.websites=WebsiteService.findWebsitesByUser(model.uid);
+
+        function init() {
+            WebsiteService.findWebsitesByUser(model.uid)
+                .then(renderWebsites, errorWebsite);
+        }
+
+        init();
 
         //event handlers
         model.create=create;
-
-        WebsiteService.findWebsitesByUser(model.uid)
-            .then(renderWebsites, errorWebsite);
-
 
         function create(name, description) {
             if(name === '' || typeof name === 'undefined' || name === null)

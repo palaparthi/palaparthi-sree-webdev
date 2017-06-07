@@ -25,10 +25,8 @@
                 size: 1,
                 text: ""
             };
-            //wdgt=WidgetService.createWidget(model.pid,widgetHeading);
             WidgetService.createWidget(model.pid,widgetHeading)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
         }
 
         function createhtml() {
@@ -38,7 +36,6 @@
             };
             wdgt=WidgetService.createWidget(model.pid,widgethtml)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
         }
 
         function createImage() {
@@ -49,7 +46,6 @@
             };
             wdgt=WidgetService.createWidget(model.pid,widgetImage)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
         }
 
         function createYouTube() {
@@ -60,7 +56,6 @@
             };
             wdgt=WidgetService.createWidget(model.pid,widgetYouTube)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget/'+wdgt._id);
         }
 
         function redirectWidget(wdgt){

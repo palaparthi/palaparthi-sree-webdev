@@ -11,7 +11,6 @@
         model.searchSeries = searchSeries;
 
         function searchSeries(searchText) {
-
             SeriesService.searchSeries(searchText);
         }
 

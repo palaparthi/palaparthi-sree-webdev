@@ -12,9 +12,14 @@
         model.wid = $routeParams['wid'];
         model.pid = $routeParams['pid'];
         model.wgid = $routeParams['wgid'];
-        //model.widget = WidgetService.findWidgetById(model.wgid);
-        WidgetService.findWidgetById(model.wgid)
-            .then(renderWidget, errorWidget);
+
+        function init() {
+            WidgetService.findWidgetById(model.wgid)
+                .then(renderWidget, errorWidget);
+        }
+
+        init();
+
         //event handlers
         model.widgetUrl = widgetUrl;
         model.editHeading = editHeading;
@@ -35,7 +40,6 @@
         }
 
         function editHeading() {
-            //{ "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"}
             var widgetHeading={
                 _id: model.widget._id,
                 widgetType: model.widget.widgetType,
@@ -45,13 +49,11 @@
             };
             WidgetService.updateWidget(model.wgid,widgetHeading)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget');
         }
         
         function deleteWidget() {
             WidgetService.deleteWidget(model.wgid)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget');
         }
 
         function editImage() {
@@ -64,12 +66,9 @@
             };
             WidgetService.updateWidget(model.wgid,widgetImage)
                 .then(redirectWidget, errorWidget);
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget');
         }
 
         function editYouTube() {
-            //"_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-            //    "url": "https://youtu.be/AM2Ivdi9c4E" },
             var widgetYouTube={
                 _id: model.widget._id,
                 widgetType: model.widget.widgetType,
@@ -79,7 +78,6 @@
             };
             WidgetService.updateWidget(model.wgid,widgetYouTube)
                 .then(redirectWidget, errorWidget);;
-            //$location.url('/user/'+model.uid+'/website/'+model.wid+'/page/'+model.pid+'/widget');
         }
 
         function renderWidget(widget) {

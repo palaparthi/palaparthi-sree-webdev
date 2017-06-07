@@ -16,11 +16,9 @@ app.get('/api/user/:userId', findUserById );
 app.get('/api/user', findUser );
 app.post('/api/user', createUser);
 app.put('/api/user/:userId', updateUser);
-app.delete('/api/user/:userId', deleteUser)
-//app.get('/api/user', findUserByUsername );
-
-
+app.delete('/api/user/:userId', deleteUser);
 app.get('/api/users', findAllUsers );
+
 
 function findAllUsers  (req, res) {
     res.send(users);
@@ -50,7 +48,6 @@ function findUserByUsername(req, res) {
              return;
         }
     }
-    //res.sendStatus(404);
     res.json(null);
 
 }
@@ -87,16 +84,11 @@ function createUser(req, res) {
     user._id = (new Date().getTime())+"";
     users.push(user);
     res.json(user);
-    //return;
 }
 
 function updateUser(req, res) {
     var userId = req.params['userId'];
     var user = req.body;
-    //var user = findUserById(userId);
-    //var index = users.indexOf(user);
-    //users[index] = user;
-
     for(var u in users){
         if(users[u]._id === userId){
             users[u] = user;

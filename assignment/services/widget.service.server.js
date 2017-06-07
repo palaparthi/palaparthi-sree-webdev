@@ -24,7 +24,6 @@ app.get('/api/page/:pageId/widget',findAllWidgetsForPage);
 app.get('/api/widget/:widgetId', findWidgetById);
 app.put('/api/widget/:widgetId', updateWidget);
 app.delete('/api/widget/:widgetId', deleteWidget);
-//app.post('/api/upload', uploadImage)
 app.post ("/api/upload", upload.single('myFile'), uploadImage);
 app.put("/api/page/:pageId/widget", reorderWidget);
 
@@ -116,7 +115,6 @@ function uploadImage(req, res) {
     var size          = myFile.size;
     var mimetype      = myFile.mimetype;
 
-    //widget = getWidgetById(widgetId);
     var widget = null;
     for(var w in widgets) {
         if (widgets[w]._id === widgetId) {
@@ -175,7 +173,6 @@ function reorderWidget(req, res){
         }
     }
     widgets=finalWidget;
-    console.log(widgets);
     res.json(widgets);
 }
 
