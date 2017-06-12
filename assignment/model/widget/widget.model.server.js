@@ -59,7 +59,7 @@ function reorderWidget(pageId, startIndex, endIndex){
     return widgetModel.find({_page:pageId},function (err, widgets) {
         widgets.forEach(function (widget) {
             if (startIndex < endIndex) {
-                if(widget.position == start){
+                if(widget.position === startIndex){
                 widget.position = endIndex;
                 widget.save();
             }
@@ -67,7 +67,7 @@ function reorderWidget(pageId, startIndex, endIndex){
                 widget.position = widget.position - 1;
             }
         } else {
-                if (widget.position == startIndex) {
+                if (widget.position === startIndex) {
                     widget.position = endIndex;
                     widget.save();
                 }
