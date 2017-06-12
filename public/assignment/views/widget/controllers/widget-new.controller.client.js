@@ -18,10 +18,11 @@
         model.createImage=createImage;
         model.createYouTube=createYouTube;
         model.createhtml=createhtml;
+        model.createText=createText;
 
         function createHeading() {
             var widgetHeading={
-                widgetType: "HEADING",
+                type: "HEADING",
                 size: 1,
                 text: ""
             };
@@ -31,7 +32,7 @@
 
         function createhtml() {
             var widgethtml={
-                widgetType: "HTML",
+                type: "HTML",
                 text: ""
             };
             wdgt=WidgetService.createWidget(model.pid,widgethtml)
@@ -40,7 +41,7 @@
 
         function createImage() {
             var widgetImage={
-                widgetType: "IMAGE",
+                type: "IMAGE",
                 width:"100%",
                 url:""
             };
@@ -48,9 +49,22 @@
                 .then(redirectWidget, errorWidget);
         }
 
+        function createText() {
+            var widgetText={
+                type: "TEXT",
+                text:"",
+                rows:0,
+                placeholder:"",
+                formatted:false
+            };
+            wdgt=WidgetService.createWidget(model.pid,widgetText)
+                .then(redirectWidget, errorWidget);
+        }
+
+
         function createYouTube() {
             var widgetYouTube={
-                widgetType: "YOUTUBE",
+                type: "YOUTUBE",
                 width:"100%",
                 url:""
             };

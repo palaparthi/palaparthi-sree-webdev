@@ -43,7 +43,7 @@
 
         function deleteWebsite() {
 
-            WebsiteService.deleteWebsite(model.wid)
+            WebsiteService.deleteWebsite(model.uid,model.wid)
                 .then(redirectWebsite,errorWebsite);
 
         }

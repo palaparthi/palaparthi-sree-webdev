@@ -4,7 +4,7 @@
 (function(){
     angular
         .module('WebAppMaker')
-        .factory('userService', userService)
+        .factory('userService', userService);
     
     function userService($http) {
 

@@ -1,0 +1,58 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
+                <div class="wd-navbar-list navbar-brand pull-left">
+                    <a class="wd-gly-chevron-left"
+                       ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{vm.pid}}/widget">
+                  <span class="glyphicon glyphicon-chevron-left">
+                  </span>
+                    </a>
+                    Widget Edit
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 ">
+                <div class="navbar-brand pull-right">
+                    <a ng-click="vm.editText()">
+                  <span class="wd-gly-plus glyphicon glyphicon-ok">
+                  </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</nav>
+<div class="container-fluid">
+
+    <label for="name">Name</label>
+    <input class="form-control"
+           ng-model="vm.widget.type"
+           placeholder="facebook"
+           value="top heading"
+           id="name"/>
+
+    Text
+    <input ng-model="vm.widget.text" class="form-control"/>
+    Rows
+    <input ng-model="vm.widget.rows" class="form-control" type="number"/>
+    Placeholder
+    <input ng-model="vm.widget.placeholder" class="form-control"/>
+    Formatted
+    <input ng-model="vm.widget.formatted" type="checkbox"/>
+
+    <a ng-click="vm.deleteWidget()" class="btn btn-block btn-danger">Delete</a>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-text wd-navbar-header pull-right ">
+            <a ng-href="#!/user/{{vm.uid}}">
+                <span class="wd-gly-user glyphicon glyphicon-user"></span>
+            </a>
+        </div>
+    </div>
+</nav>

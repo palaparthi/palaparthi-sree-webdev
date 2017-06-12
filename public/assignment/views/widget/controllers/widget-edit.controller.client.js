@@ -26,15 +26,16 @@
         model.deleteWidget=deleteWidget;
         model.editImage=editImage;
         model.editYouTube=editYouTube;
-
+        model.editHtml=editHtml;
+        model.editText=editText;
 
         function widgetUrl(widget) {
             if(widget) {
                 var url;
-                if (widget.widgetType === 'HTML')
+                /*if (widget.type === 'HTML')
                     url = 'views/widget/templates/widget-heading-edit.view.client.html';
-                else
-                    url = 'views/widget/templates/widget-' + widget.widgetType.toLowerCase() + '-edit.view.client.html';
+                else*/
+                    url = 'views/widget/templates/widget-' + widget.type.toLowerCase() + '-edit.view.client.html';
                 return url;
             }
         }
@@ -42,7 +43,7 @@
         function editHeading() {
             var widgetHeading={
                 _id: model.widget._id,
-                widgetType: model.widget.widgetType,
+                type: model.widget.type,
                 pageId: model.pid,
                 size: model.widget.size,
                 text: model.widget.text
@@ -50,16 +51,41 @@
             WidgetService.updateWidget(model.wgid,widgetHeading)
                 .then(redirectWidget, errorWidget);
         }
+
+        function editHtml() {
+            var widgetHtml={
+                _id: model.widget._id,
+                type: model.widget.type,
+                pageId: model.pid,
+                text: model.widget.text
+            };
+            WidgetService.updateWidget(model.wgid,widgetHtml)
+                .then(redirectWidget, errorWidget);
+        }
+
+        function editText() {
+            var widgetText={
+                _id: model.widget._id,
+                type: model.widget.type,
+                pageId: model.pid,
+                text: model.widget.text,
+                rows: model.widget.rows,
+                placeholder: model.widget.placeholder,
+                formatted: model.widget.formatted
+            };
+            WidgetService.updateWidget(model.wgid,widgetText)
+                .then(redirectWidget, errorWidget);
+        }
         
         function deleteWidget() {
-            WidgetService.deleteWidget(model.wgid)
+            WidgetService.deleteWidget(model.pid, model.wgid)
                 .then(redirectWidget, errorWidget);
         }
 
         function editImage() {
             var widgetImage={
                 _id: model.widget._id,
-                widgetType: model.widget.widgetType,
+                type: model.widget.type,
                 pageId: model.pid,
                 width:model.widget.width,
                 url: model.widget.url
@@ -71,13 +97,13 @@
         function editYouTube() {
             var widgetYouTube={
                 _id: model.widget._id,
-                widgetType: model.widget.widgetType,
+                type: model.widget.type,
                 pageId: model.pid,
                 width:model.widget.width,
                 url: model.widget.url
             };
             WidgetService.updateWidget(model.wgid,widgetYouTube)
-                .then(redirectWidget, errorWidget);;
+                .then(redirectWidget, errorWidget);
         }
 
         function renderWidget(widget) {

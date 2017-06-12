@@ -4,7 +4,7 @@
 (function (){
     angular
         .module('WebAppMaker')
-        .controller('RegisterController', RegisterController)
+        .controller('RegisterController', RegisterController);
 
     function RegisterController($location, userService) {
         var model = this;
@@ -45,7 +45,7 @@
                         model.err = 'Please make sure that passwords match !'
                     }
                 }
-                else model.err = 'User '+user.username+' already exists. Try another username !!';
+                else model.err = 'User already exists. Try another username !!';
 
             }
 

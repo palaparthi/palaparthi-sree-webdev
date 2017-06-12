@@ -32,7 +32,10 @@
             model.message = "Error!"
         }
         function widgetUrl(widget) {
-            var url = 'views/widget/templates/widget-'+widget.widgetType.toLowerCase()+'.view.client.html';
+            // if(widget.type==='HTML')
+            //     var url = 'views/widget/templates/widget-heading.view.client.html';
+            // else
+            var url = 'views/widget/templates/widget-'+widget.type.toLowerCase()+'.view.client.html';
             return url;
         }
 

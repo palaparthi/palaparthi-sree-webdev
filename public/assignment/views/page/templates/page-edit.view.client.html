@@ -81,10 +81,10 @@
                             </a>
                         </div>
                         <div class="col-lg-2  visible-lg">
-                            {{page.created | date}}
+                            {{page.dateCreated | date}}
                         </div>
                         <div class="col-lg-2 hidden-md hidden-sm hidden-xs">
-                            {{page.accessed | date}}
+                            {{page.dateAccessed | date}}
                         </div>
                         <div class="col-xs-3">
                             <a ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{page._id}}">
