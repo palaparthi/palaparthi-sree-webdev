@@ -35,6 +35,22 @@ outline: none !important;
 	opacity: 0.9;
 }
 
+.img-circle {
+	border-radius: 50%;
+}
+
+.profile-view
+{
+	/*background-color: black;*/
+	background-image: url("https://wallpaperscraft.com/image/cube_3d_graphics_black_gray_background_3d_graphics_74555_1920x1080.jpg");
+	/*background-image: url("https://ak3.picdn.net/shutterstock/videos/9900830/thumb/1.jpg") ;*/
+	/*background-image: url("http://www.lincspa.co.uk/media/background/background.jpg") ;*/
+	/*background-image: url("https://www.webpagefx.com/blog/images/cdn.designinstruct.com/files/234-colored_vintage_paper_textures/colored_vintage_paper_texture_02_blue.jpg") ;*/
+	/*background-image: url("https://yts.ag/assets/images/movies/The_Wolverine_2013_EXTENDED/background.jpg") ;*/
+	background-repeat: no-repeat ;
+	opacity: 0.9;
+}
+
 .loginbutton
 {
 	margin-top: 10px;

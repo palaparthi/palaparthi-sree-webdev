@@ -1,3 +1,4 @@
+
 <div class="topbar animated fadeInLeftBig"></div>
 <div class="navbar-wrapper">
     <div class="container-fluid">
@@ -25,24 +26,10 @@
 
                     <ul class="nav navbar-nav navbar-right scroll">
                         <li><a href="#!/search" class="navbarhover glyphicon glyphicon-search"></a></li>
-                        <li class="active"><a href="#works">Trending</a></li>
-                        <li ><a class="navbarhover" href="#!/register">Register</a></li>
-                        <li ><a class="navbarhover" href="#!/login">Login</a></li>
-                        <li ><a class="navbarhover" href="#contact">Contact</a></li>
+                        <li><a class="navbarhover" href="#!/user/{{model.userId}}">Trending</a></li>
+                        <li class="active"><a href="#works">Profile</a></li>
+                        <li><a class="navbarhover" href="">Logout {{model.user.username}}</a></li>
                     </ul>
-                    <!--<form class="navbar-form navbar-right" style="padding-top: 15px; padding-right: 150px">
-                        <div class="form-group">
-                            <input ng-model="searchText"
-                                   type="text"
-                                   class="form-control"
-                                   placeholder="Friends">
-                        </div>
-                        <button ng-click="model.getSeriesbyName(searchText)"
-                                type="submit"
-                                class="btn btn-default"
-                                ng-href="#!/search">Search</button>
-                    </form>-->
-
                 </div>
 
             </div>
@@ -50,11 +37,57 @@
     </div>
 </div>
 
-<div class="container-fluid">
 
-</div>
+<div class="login-view container-fluid">
 
-<div class="footer text-center spacer">
-    <p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a> </p>
-    Project for Web Development at Northeastern University.
+    <div class="logindiv container">
+        <br>
+        <div align="center" class="row">
+            <img align="center" class="img-circle" ng-src="https://kurs.com.ua/uploads/set_resources_2/84c1e40ea0e759e3f1505eb1788ddf3c_default_photo.png">
+        </div>
+        <h4 align="center" style="color: #00a9c6; margin-top: 20px">Username</h4>
+        <br>
+        <div class="row">
+            <div align="right" class="col-xs-5">
+                <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+            </div>
+            <div align="left" style="padding-top: 20px" class="col-xs-7">
+                <h4>Followers</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div align="right" class="col-xs-5">
+                <i class="fa fa-th-list fa-4x" aria-hidden="true"></i>
+            </div>
+            <div align="left" style="padding-top: 20px" class="col-xs-7">
+                <h4>Wish List</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div align="right" class="col-xs-5">
+                <i class="fa fa-list-alt fa-4x"></i>
+            </div>
+            <div align="left" style="padding-top: 20px" class="col-xs-7">
+                <h4>Watched List</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div align="right" class="col-xs-5">
+                <i class="fa fa-comments fa-4x" aria-hidden="true"></i>
+            </div>
+            <div align="left" style="padding-top: 20px" class="col-xs-7">
+                <h4>Comments</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div align="right" class="col-xs-5">
+                <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+            </div>
+            <div align="left" style="padding-top: 20px" class="col-xs-7">
+                <h4>Following</h4>
+            </div>
+        </div>
+        <br>
+    </div>
+
 </div>
