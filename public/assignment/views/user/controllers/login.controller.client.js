@@ -41,7 +41,7 @@
             }
 
             function loginError(user) {
-                model.message="Error!!";
+                model.message="Invalid Credentials";
             }
 
         }
