@@ -71,20 +71,20 @@
 
         </form>
 
-        <a ng-href="#!/user/{{vm.userId}}/website"
+        <a ng-href="#!/website"
            class="btn btn-primary btn-block">
         Websites
         </a>
 
         <a class="btn btn-danger  btn-block"
-           href="#!/login">Logout</a>
+           ng-click="vm.logout()">Logout</a>
     </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text wd-navbar-header pull-right ">
 
-            <a href="#!/user/{{vm.userId}}">
+            <a href="#!/profile">
                 <span class="glyphicon glyphicon-user">
                 </span>
             </a>

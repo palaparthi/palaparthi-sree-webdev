@@ -6,9 +6,10 @@
         .module('WebAppMaker')
         .controller('WidgetListController', WidgetListController)
 
-    function WidgetListController($routeParams, WidgetService, $sce){
+    function WidgetListController($routeParams, WidgetService, currentUser, $sce){
         var model = this;
-        model.uid=$routeParams['uid'];
+        //model.uid=$routeParams['uid'];
+        model.uid=currentUser._id;
         model.wid=$routeParams['wid'];
         model.pid=$routeParams['pid'];
 

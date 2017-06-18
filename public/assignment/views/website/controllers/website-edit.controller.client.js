@@ -5,12 +5,13 @@
 
     angular
         .module('WebAppMaker')
-        .controller('EditWebsiteController', EditWebsiteController)
+        .controller('EditWebsiteController', EditWebsiteController);
 
-    function EditWebsiteController(WebsiteService, $routeParams,$location) {
+    function EditWebsiteController(WebsiteService, $routeParams,$location, currentUser) {
         var model = this;
 
-        model.uid = $routeParams['uid'];
+        //model.uid = $routeParams['uid'];
+        model.uid = currentUser._id;
         model.wid = $routeParams['wid'];
 
         //event handlers
@@ -37,7 +38,7 @@
         }
 
         function errorWebsite(website) {
-            model.website = "Error!";
+            model.error = "Error!";
         }
 
 
@@ -48,21 +49,27 @@
 
         }
 
-        function updateWebsite(name, description) {
+        function updateWebsite() {
+            if(typeof model.website.name==='undefined' || model.website.name ==='')
+            {
+                model.error='Website Name is required';
+            }
+            else {
+                var website = {
+                    _id: model.website._id,
+                    name: model.website.name,
+                    developerId: model.uid,
+                    description: model.website.description
+                };
 
-            var website = {
-                _id: model.website._id,
-                name: model.website.name,
-                developerId: model.uid,
-                description: model.website.description
-            };
-
-            WebsiteService.updateWebsite(model.wid, website)
-                .then(redirectWebsite, errorWebsite);
+                WebsiteService.updateWebsite(model.wid, website)
+                    .then(redirectWebsite, errorWebsite);
+            }
 
         }
+
         function redirectWebsite() {
-            $location.url('/user/'+model.uid+'/website');
+            $location.url('/website');
         }
     }
 })();

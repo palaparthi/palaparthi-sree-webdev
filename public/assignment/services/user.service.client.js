@@ -14,7 +14,11 @@
             findUserByUsername : findUserByUsername,
             createUser : createUser,
             updateUser : updateUser,
-            deleteUser : deleteUser
+            deleteUser : deleteUser,
+            login : login,
+            loggedIn : loggedIn,
+            logout : logout,
+            register : register
         };
         return api;
 
@@ -71,6 +75,44 @@
                 .then(function (response) {
                     return response.data;
                 })
+        }
+
+        function login(username, password) {
+            var url = '/api/login';
+            var credentials ={
+                username: username,
+                password: password
+            };
+            return $http.post(url,credentials)
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+
+        function loggedIn(){
+            var url = '/api/loggedIn';
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+
+        }
+
+        function logout() {
+            var url = '/api/logout';
+            return $http.post(url    )
+                .then(function (response) {
+                    return response.data;
+                });
+        }
+        
+        function register(userObj) {
+            var url = '/api/register';
+            return $http.post(url,userObj)
+                .then(function (response) {
+                    return response.data;
+                })
+
         }
     }
     

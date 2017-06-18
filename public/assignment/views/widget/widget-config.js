@@ -8,29 +8,58 @@
 
     function Config($routeProvider) {
         $routeProvider
-            .when('/user/:uid/website/:wid/page/:pid/widget',{
+            .when('/website/:wid/page/:pid/widget',{
                 templateUrl: '../assignment/views/widget/templates/widget-list.view.client.html',
                 controller: 'WidgetListController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    currentUser:checkLoggedIn
+                }
             })
-            .when('/user/:uid/website/:wid/page/:pid/widget/new',{
+            .when('/website/:wid/page/:pid/widget/new',{
                 templateUrl: '../assignment/views/widget/templates/widget-chooser.view.client.html',
                 controller: 'NewWidgetController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    currentUser:checkLoggedIn
+                }
             })
-            .when('/user/:uid/website/:wid/page/:pid/widget/:wgid',{
+            .when('/website/:wid/page/:pid/widget/:wgid',{
                 templateUrl: '../assignment/views/widget/templates/widget-edit.view.client.html',
                 controller: 'EditWidgetController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    currentUser:checkLoggedIn
+                }
             })
-            .when('/user/:uid/website/:wid/page/:pid/widget/:wgid/search',{
+            .when('/website/:wid/page/:pid/widget/:wgid/search',{
                 templateUrl: '../assignment/views/widget/templates/widget-flickr-search.view.client.html',
                 controller: 'FlickrImageSearchController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                resolve: {
+                    currentUser:checkLoggedIn
+                }
             });
 
 
 
+    }
+
+    function checkLoggedIn(userService, $q,$location) {
+        var deffered = $q.defer();
+
+        userService.loggedIn()
+            .then(function (user) {
+                if(user ==='0'){
+                    deffered.reject();
+                    $location.url('/login')
+                }
+                else{
+                    deffered.resolve(user);
+                }
+            });
+
+        return deffered.promise;
     }
 
 }) ();

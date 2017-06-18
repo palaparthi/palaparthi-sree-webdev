@@ -3,9 +3,10 @@
         .module('WebAppMaker')
         .controller('NewWebsiteController', NewWebsiteController);
 
-    function NewWebsiteController($routeParams, $location, WebsiteService) {
+    function NewWebsiteController($routeParams, $location, currentUser, WebsiteService) {
         var model=this;
-        model.uid=$routeParams['uid'];
+        //model.uid=$routeParams['uid'];
+        model.uid=currentUser._id;
 
         function init() {
             WebsiteService.findWebsitesByUser(model.uid)
@@ -31,7 +32,7 @@
                 .then(websiteCreated, errorWebsite);
 
             function websiteCreated() {
-                $location.url('/user/'+model.uid+'/website');
+                $location.url('/website');
             }
 
         }

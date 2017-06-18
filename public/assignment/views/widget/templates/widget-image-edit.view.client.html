@@ -6,7 +6,7 @@
             <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
                 <div class="wd-navbar-list navbar-brand pull-left">
                     <a class="wd-gly-chevron-left"
-                       ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{vm.pid}}/widget">
+                       ng-href="#!/website/{{vm.wid}}/page/{{vm.pid}}/widget">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                     </a>
@@ -29,9 +29,9 @@
 
 
 <div class="container-fluid">
-
+    <div ng-show="vm.err" class="alert alert-danger">{{vm.err}}</div>
     <label for="name">Name</label>
-    <input class="form-control"
+    <input readonly class="form-control"
            ng-model="vm.widget.type"
            placeholder="facebook"
            value="top heading"
@@ -56,7 +56,7 @@
            placeholder="100%"
            id="width"/>
     <label> Upload Image</label>
-    <a class ="btn btn-primary btn-block" href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{vm.pid}}/widget/{{vm.wgid}}/search">
+    <a class ="btn btn-primary btn-block" href="#!/website/{{vm.wid}}/page/{{vm.pid}}/widget/{{vm.wgid}}/search">
         Search
     </a>
     <form action="/api/upload"   method="post" enctype="multipart/form-data">
@@ -78,7 +78,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text wd-navbar-header pull-right ">
-            <a ng-href="#!/user/{{vm.uid}}">
+            <a ng-href="#!/profile">
                 <span class="wd-gly-user glyphicon glyphicon-user"></span>
             </a>
         </div>

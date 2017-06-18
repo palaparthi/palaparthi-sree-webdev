@@ -8,7 +8,7 @@
                 <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
                     <div class="wd-navbar-edit navbar-brand pull-left">
                         <a class="wd-navbar-left wd-gly-chevron-left"
-                           ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page">
+                           ng-href="#!/website/{{vm.wid}}/page">
                       <span class="glyphicon glyphicon-chevron-left">
                       </span>
                         </a>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="wd-navbar-gly-edit col-lg-4 col-md-4 col-sm-4 ">
                     <div class="navbar-brand pull-right">
-                        <a ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/new">
+                        <a ng-href="#!/website/{{vm.wid}}/page/new">
                       <span class="glyphicon glyphicon-plus">
                       </span>
                         </a>
@@ -29,7 +29,7 @@
                 <div class="wd-navbar-media col-lg-8 col-md-8 col-sm-8">
                     <div class="navbar-brand pull-left">
                         <a class="wd-gly-chevron-left-edit"
-                           ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page">
+                           ng-href="#!/website/{{vm.wid}}/page">
                       <span class="wd-gly-left glyphicon glyphicon-chevron-left">
                       </span>
                         </a>
@@ -77,7 +77,7 @@
                 <li class="list-group-item" ng-repeat="page in vm.pages">
                     <div class="row">
                         <div class="col-lg-5 col-md-9 col-xs-9">
-                            <a ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{page._id}}/widget">
+                            <a ng-href="#!/website/{{vm.wid}}/page/{{page._id}}/widget">
                                 {{page.name}}
                             </a>
                         </div>
@@ -88,7 +88,7 @@
                             {{page.dateAccessed | date}}
                         </div>
                         <div class="col-xs-3">
-                            <a ng-href="#!/user/{{vm.uid}}/website/{{vm.wid}}/page/{{page._id}}">
+                            <a ng-href="#!/website/{{vm.wid}}/page/{{page._id}}">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
                         </div>
@@ -120,7 +120,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-text wd-navbar-header pull-right ">
-            <a href="#!/user/{{vm.uid}}">
+            <a href="#!/profile">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
         </div>
