@@ -14,9 +14,9 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 
 var googleConfig = {
-    clientID     : '181107453234-ub094pacp8p4j1bkb3sniht8ga8fj64e.apps.googleusercontent.com',//process.env.GOOGLE_CLIENT_ID,
-    clientSecret : '3H2V1OlhZPGUUjTxOdOKuaQq',//process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL  : 'http://localhost:3000/auth/google/callback'//process.env.GOOGLE_CALLBACK_URL
+    clientID     : process.env.GOOGLE_CLIENT_ID, //'181107453234-ub094pacp8p4j1bkb3sniht8ga8fj64e.apps.googleusercontent.com'
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET, //'3H2V1OlhZPGUUjTxOdOKuaQq',
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL //'http://localhost:3000/auth/google/callback'
 };
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
