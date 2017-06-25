@@ -8,6 +8,8 @@ The following are the links to my home page, project and assignments respectivel
 
 [Home Page](https://palaparthi-webdev-summer17.herokuapp.com/)
 
+[Assignments](https://palaparthi-webdev-summer17.herokuapp.com/assignment/index.html)
+
 [Project](https://palaparthi-webdev-summer17.herokuapp.com/project/index.html)
 
-[Assignments](https://palaparthi-webdev-summer17.herokuapp.com/assignment/index.html)
+[Project GitHub Repo](https://github.com/Nimisha94/webdev_project_trendtv)
