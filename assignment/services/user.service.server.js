@@ -18,6 +18,11 @@ var googleConfig = {
     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
     callbackURL  : process.env.GOOGLE_CALLBACK_URL
 };
+/*var googleConfig = {
+    clientID     : '181107453234-ub094pacp8p4j1bkb3sniht8ga8fj64e.apps.googleusercontent.com',
+    clientSecret : '3H2V1OlhZPGUUjTxOdOKuaQq',
+    callbackURL  : 'http://localhost:3000/auth/google/callback'
+};*/
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 

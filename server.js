@@ -14,6 +14,10 @@ app.use(session({
     secret: process.env.SESSION_SECRET
 
 }));
+/*app.use(session({
+    secret: 'ishtam'
+
+}));*/
 app.use(passport.initialize());
 app.use(passport.session());
 
